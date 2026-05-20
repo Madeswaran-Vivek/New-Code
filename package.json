@@ -1,0 +1,20 @@
+{
+    "name": "b2b-saas-us-scraper",
+    "version": "0.1.0",
+    "type": "module",
+    "description": "Apify Actor that scrapes B2B SaaS product listings from G2.com, filtered to US-headquartered vendors.",
+    "main": "src/main.js",
+    "scripts": {
+        "start": "node src/main.js",
+        "test": "echo \"No tests yet\" && exit 0"
+    },
+    "dependencies": {
+        "apify": "^3.2.6",
+        "crawlee": "^3.11.0",
+        "puppeteer": "^22.10.0"
+    },
+    "engines": {
+        "node": ">=18"
+    },
+    "license": "ISC"
+}

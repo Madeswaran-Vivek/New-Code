@@ -1,0 +1,9 @@
+node_modules
+npm-debug.log
+.git
+.gitignore
+storage
+apify_storage
+crawlee_storage
+.env
+README.md
