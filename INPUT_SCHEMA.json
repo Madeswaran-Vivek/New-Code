@@ -1,0 +1,57 @@
+{
+    "title": "B2B SaaS US Scraper input",
+    "type": "object",
+    "schemaVersion": 1,
+    "properties": {
+        "categoryUrls": {
+            "title": "G2 category URLs",
+            "type": "array",
+            "description": "One or more G2.com category URLs to crawl, e.g. https://www.g2.com/categories/crm",
+            "editor": "stringList",
+            "prefill": [
+                "https://www.g2.com/categories/crm",
+                "https://www.g2.com/categories/marketing-automation",
+                "https://www.g2.com/categories/project-management"
+            ]
+        },
+        "maxItems": {
+            "title": "Max products",
+            "type": "integer",
+            "description": "Maximum number of products to save to the dataset across all categories.",
+            "default": 50,
+            "minimum": 1,
+            "maximum": 1000
+        },
+        "usOnly": {
+            "title": "US vendors only",
+            "type": "boolean",
+            "description": "If true, skip products whose vendor headquarters are not detected as US.",
+            "default": true
+        },
+        "minRating": {
+            "title": "Minimum G2 rating",
+            "type": "integer",
+            "description": "Skip products rated below this (0–5). Set to 0 to disable.",
+            "default": 0,
+            "minimum": 0,
+            "maximum": 5
+        },
+        "marketSegment": {
+            "title": "Primary market segment",
+            "type": "string",
+            "description": "Only keep products where the chosen segment makes up 30%+ of reviews.",
+            "editor": "select",
+            "default": "all",
+            "enum": ["all", "small_business", "mid_market", "enterprise"],
+            "enumTitles": ["All segments", "Small-Business", "Mid-Market", "Enterprise"]
+        },
+        "proxyConfiguration": {
+            "title": "Proxy configuration",
+            "type": "object",
+            "description": "Apify Proxy settings. Residential US proxies strongly recommended for G2.",
+            "editor": "proxy",
+            "prefill": { "useApifyProxy": true, "apifyProxyGroups": ["RESIDENTIAL"], "apifyProxyCountry": "US" }
+        }
+    },
+    "required": ["categoryUrls"]
+}

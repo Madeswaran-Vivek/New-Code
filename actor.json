@@ -1,0 +1,51 @@
+{
+    "actorSpecification": 1,
+    "name": "b2b-saas-us-scraper",
+    "title": "B2B SaaS US Scraper",
+    "description": "Scrapes B2B SaaS product listings from G2 category pages, filters to US-headquartered vendors, and outputs structured JSON.",
+    "version": "0.1",
+    "buildTag": "latest",
+    "meta": {
+        "templateId": "js-empty"
+    },
+    "input": "./INPUT_SCHEMA.json",
+    "dockerfile": "../Dockerfile",
+    "readme": "../README.md",
+    "storages": {
+        "dataset": {
+            "actorSpecification": 1,
+            "title": "B2B SaaS US Products",
+            "views": {
+                "overview": {
+                    "title": "Overview",
+                    "transformation": {
+                        "fields": [
+                            "productName",
+                            "vendor",
+                            "vendorHeadquarters",
+                            "isUSBased",
+                            "category",
+                            "rating",
+                            "reviewCount",
+                            "pricingModel",
+                            "freeTrial",
+                            "productUrl"
+                        ]
+                    },
+                    "display": {
+                        "component": "table",
+                        "properties": {
+                            "productName": { "label": "Product", "format": "text" },
+                            "vendor": { "label": "Vendor", "format": "text" },
+                            "vendorHeadquarters": { "label": "HQ", "format": "text" },
+                            "isUSBased": { "label": "US-based", "format": "boolean" },
+                            "rating": { "label": "Rating", "format": "number" },
+                            "reviewCount": { "label": "Reviews", "format": "number" },
+                            "productUrl": { "label": "URL", "format": "link" }
+                        }
+                    }
+                }
+            }
+        }
+    }
+}
